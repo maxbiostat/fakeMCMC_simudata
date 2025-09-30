@@ -28,5 +28,6 @@ target.info <- data.frame(
   sigma = sigmas,
   v = sigmas^2
 )
+
 save(target.info,
      file = "../saved_data/lognormal_targets.RData")
