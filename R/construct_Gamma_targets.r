@@ -89,8 +89,18 @@ AppSym <- approximate_and_plot(Mu = mus[1], Sigma = sigmas[1],
                      title = "Symmetric", leg = FALSE)
 
 
-target.info$gamma_a_mom <- c(AppAsym$par_mom[1],
-                             App
-target.info$gamma_b_mom <-
-target.info$gamma_a_KL <- 
-target.info$gamma_b_KL <-  
+target.info$gamma_a_mom <- c(AppSym$par_mom[1],
+                             AppMod$par_mom[1],
+                             AppAsym$par_mom[1])
+target.info$gamma_b_mom <- c(AppSym$par_mom[2],
+                             AppMod$par_mom[2],
+                             AppAsym$par_mom[2])
+target.info$gamma_a_KL <- c(AppSym$par_kl[1],
+                            AppMod$par_kl[1],
+                            AppAsym$par_kl[1])
+target.info$gamma_b_KL <-  c(AppSym$par_kl[2],
+                             AppMod$par_kl[2],
+                             AppAsym$par_kl[2])
+
+save(target.info,
+     file = "../saved_data/gamma_targets.RData")
