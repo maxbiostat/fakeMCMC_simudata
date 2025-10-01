@@ -80,6 +80,7 @@ load("../saved_data/lognormal_targets.RData")
 mus <- target.info$m
 sigmas <- target.info$sigma
 
+pdf("../figures/gamma_approximations_targets.pdf", paper = "a4")
 par(mfrow = c(1, 3))
 AppAsym <- approximate_and_plot(Mu = mus[3], Sigma = sigmas[3],
                      title = "Asymmetric")
@@ -87,6 +88,7 @@ AppMod <- approximate_and_plot(Mu = mus[2], Sigma = sigmas[2],
                      title = "Moderate", leg = FALSE)
 AppSym <- approximate_and_plot(Mu = mus[1], Sigma = sigmas[1],
                      title = "Symmetric", leg = FALSE)
+dev.off()
 
 
 target.info$gamma_a_mom <- c(AppSym$par_mom[1],
